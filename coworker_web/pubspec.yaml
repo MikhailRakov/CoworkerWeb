@@ -1,0 +1,53 @@
+name: coworker_web
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.6.0
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #icons
+  cupertino_icons:
+  #carousel_slider: ^5.0.0
+  carousel_slider: ^5.0.0
+  #easy date timeline
+  easy_date_timeline:
+  #dateTime
+  intl:
+  #text style
+  auto_size_text:
+  #connection
+  connectivity_plus:
+  #messaging
+  http:
+  googleapis_auth:
+  #serv
+  shared_preferences:
+  provider:
+  get:
+  #signing
+  google_sign_in:
+  google_sign_in_ios:
+  #firebase
+  firebase_auth:
+  firebase_messaging:
+  firebase_core:
+  cloud_firestore:
+  #images in chat
+  firebase_storage:
+  fluttertoast:
+  image_picker:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+

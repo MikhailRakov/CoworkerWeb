@@ -1,4 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:coworker_web/pages/home/widgets/group_list.dart';
+import 'package:coworker_web/pages/home/widgets/chat_view.dart';
+import 'package:coworker_web/pages/home/widgets/profile_list.dart';
+import 'package:coworker_web/services/auth_servise.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,15 +12,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading:false,
+        automaticallyImplyLeading: false,
         title: AutoSizeText("C O W O R K E R"),
+        actions: [CircleAvatar(
+          backgroundImage: NetworkImage(AuthServise().getCurrentUser()?.photoURL??""),
+        )],
       ),
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.6,
-          color: Colors.black54,
-          child: Text("ss"),//LoginDiolog(),
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ProfileListWidget(),
+          GroupsListWidget(),
+          ChatViewWidget(),
+        ],
       ),
     );
   }

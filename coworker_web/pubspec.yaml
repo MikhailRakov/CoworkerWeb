@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
   #icons
   cupertino_icons:
@@ -50,4 +51,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/google-logo.png
 

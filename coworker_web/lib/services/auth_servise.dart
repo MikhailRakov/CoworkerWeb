@@ -1,5 +1,5 @@
 import 'dart:developer';
-//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -18,11 +18,12 @@ class AuthServise {
   }
 
   signInWithGoogle() async {
-    final GoogleSignInAccount? gUser =
-        await GoogleSignIn(scopes: ["profile", "email"]).signIn();
-
-    if (gUser == null) return;
-
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+    if (gUser == null) {
+      //log("gUser = null");
+      return;
+    }
+    //log("gUser != null");
     try {
       final GoogleSignInAuthentication gAuth = await gUser.authentication;
       final credential = GoogleAuthProvider.credential(

@@ -6,8 +6,8 @@ class GroupsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width*0.15,
-      height: MediaQuery.of(context).size.height,
+      width: 250,//MediaQuery.of(context).size.width*0.15,
+      height:1000,// MediaQuery.of(context).size.height,
       child: Card(        
         child: Text("data"),
       ),

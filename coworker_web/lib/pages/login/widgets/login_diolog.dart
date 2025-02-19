@@ -4,15 +4,16 @@ import 'dart:developer';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:coworker_web/globals.dart';
-import 'package:coworker_web/services/auth_servise.dart';
+import 'package:coworker_web/services/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coworker_web/services/firebase_service.dart';
+import 'package:coworker_web/services/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginDiolog extends StatelessWidget {
-  const LoginDiolog({super.key});
+   LoginDiolog({super.key});  
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class LoginDiolog extends StatelessWidget {
               child: IconButton.outlined(
                 onPressed: () async {
                   try {
-                    await AuthServise().signInWithGoogle();
+                    await AuthService().signInWithGoogle();
                   } catch (e) {
                     log(e.toString());
                     return;
@@ -34,17 +35,19 @@ class LoginDiolog extends StatelessWidget {
                   await FirebaseFirestore.instance
                       .collection("users")
                       .where("gmail",
-                          isEqualTo: AuthServise().getCurrentUser()?.email)
+                          isEqualTo: AuthService().getCurrentUser()?.email)
                       .get()
                       .then(
                     (snap) {
                       var s = snap.docs;
                       if (s.isEmpty) {
                         FirebaseService().addUserToFirebase();
+                        
                         Navigator.of(context).pushNamed('home');
                       } else {                        
-                        FirebaseUserLink=s[0].data()['link'];
-                        log(FirebaseUserLink);
+                        firebaseUserLink=s[0].data()['link'];
+                        log(firebaseUserLink);
+                        PrefService().createCache(firebaseUserLink);
                         Navigator.of(context).pushNamed('home');
                       }
                     },

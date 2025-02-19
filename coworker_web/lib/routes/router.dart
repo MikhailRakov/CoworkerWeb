@@ -9,6 +9,6 @@ final routes = {
   //'/group_info': (context) => const GroupInfoPageScreen(),
   //'/group_page': (context) => const GroupPageScreen(title: 'C O W O R K E R'),
   //'/home': (context) => const HomePageScreen(title: 'C O W O R K E R'),
-  'home':(context)=> const HomePage(),
+  'home':(context)=> HomePage(),
   '/': (context) => const LoginPage(),
 };

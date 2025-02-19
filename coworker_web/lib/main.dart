@@ -1,4 +1,5 @@
 import 'package:coworker_web/routes/router.dart';
+import 'package:coworker_web/services/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,6 @@ void main() async {
       measurementId: "G-HMJXYJBLD5",
     ),
   );
-
   runApp(const MainApp());
 }
 
@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp(      
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,

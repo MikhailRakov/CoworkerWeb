@@ -29,7 +29,6 @@ dependencies:
   googleapis_auth:
   #serv
   shared_preferences:
-  provider:
   get:
   #signing
   google_sign_in:

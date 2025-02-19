@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:coworker_web/services/auth_servise.dart';
+import 'package:coworker_web/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class ChatViewWidget extends StatelessWidget {
@@ -10,10 +10,10 @@ class ChatViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
    
     return SizedBox(
-            width: MediaQuery.of(context).size.width * 0.6,
-            height:MediaQuery.of(context).size.height ,              
+            width: 1000,//MediaQuery.of(context).size.width * 0.6,
+            height:1000,//MediaQuery.of(context).size.height ,              
             child: Card(
-              child: Text(AuthServise().getCurrentUser()?.email ?? "sssss"),
+              child: Text(AuthService().getCurrentUser()?.email ?? "sssss"),
             ),
           );
   }
